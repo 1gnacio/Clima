@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import "weather-icons/css/weather-icons.css"
 import Weather from './app_component/weather.component';
+import Github from './app_component/github.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from './app_component/form.component';
 
@@ -106,7 +107,9 @@ class App extends Component {
           temp_min={this.state.temp_min}
           description={this.state.description}
           weatherIcon={this.state.icon}/>
+          <Github />
       </div>
+
     )
   }
 }
