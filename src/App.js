@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg';
 import './App.css';
 import "weather-icons/css/weather-icons.css"
 import Weather from './app_component/weather.component';
@@ -41,7 +40,7 @@ class App extends Component {
     return cel
   }
 
-  get_weatherIcon(icons, rangeId){
+  get_weatherIcon(rangeId){
     switch(true){
       case rangeId >=200 && rangeId <=232:
         this.setState({icon:this.weatherIcon.thunderstorm});
@@ -64,6 +63,8 @@ class App extends Component {
       case rangeId >=801 && rangeId <=804:
         this.setState({icon:this.weatherIcon.clouds});
         break;
+      default:
+        break;
     }
   }
 
@@ -76,7 +77,6 @@ class App extends Component {
     if(city && country){
       const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`);
     const response = await api_call.json();
-    console.log(response);
     this.setState({
       city:`${response.name}, ${response.sys.country}`,
       icon: this.weatherIcon.thunderstorm,
@@ -88,7 +88,7 @@ class App extends Component {
       error: false
     })
 
-    this.get_weatherIcon(this.weatherIcon, response.weather[0].id)
+    this.get_weatherIcon(response.weather[0].id)
     }else{
       this.setState({error: true})
     }
