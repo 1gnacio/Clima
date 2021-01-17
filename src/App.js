@@ -97,6 +97,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <p>Hola</p>
         <Form loadWeather={this.getWeather} error={this.state.error}/>
         <Weather 
           city={this.state.city} 
