@@ -3,17 +3,13 @@ import React, { Component } from 'react'
 class Github extends Component {
     constructor(props) {
         super(props)
-    
-        this.state = {
-             
-        }
     }
     
     clickHandler = () => {
         window.open("https://github.com/1gnacio/Clima", "_blank")
     }
 
-    mouseOverHandler = () => {
+    mouseOverHandler = (setCursor) => {
         setCursor(prevState => {
           if(prevState === 'crosshair'){
             return 'pointer';
@@ -23,9 +19,13 @@ class Github extends Component {
     };
 
     render() {
+        const [cursor, setCursor] = useState('crosshair');
         return(
             <div className="container">
-                <img src="../assets/git.jpg" onClick={this.clickHandler} onMouseOver={this.mouseOverHandler}/>
+                <img src="../assets/git.jpg" 
+                onClick={this.clickHandler} 
+                onMouseOver={this.mouseOverHandler(setCursor)} 
+                style={{cursor: cursor}}/>
             </div>
         );
     }
