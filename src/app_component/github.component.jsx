@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logo from '../assets/git.jpg'
 
 function Github() {
 
@@ -6,10 +7,7 @@ function Github() {
 
     const changeCursor = () => {
         setCursor(prevState => {
-        if(prevState === 'crosshair'){
             return 'pointer';
-        }
-        return 'crosshair';
         });
     }
 
@@ -19,7 +17,7 @@ function Github() {
     
     return(
         <div className="container">
-            <img src="../assets/git.jpg" 
+            <img src={logo} 
             onClick={clickHandler} 
             onMouseOver={changeCursor} 
             style={{cursor: cursor}}/>
