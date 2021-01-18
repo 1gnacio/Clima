@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
-class Github extends Component {
-    constructor(props) {
-        super(props)
-    }
+function Github() {
+
+    const [cursor, setCursor] = useState('crosshair');
     
     clickHandler = () => {
         window.open("https://github.com/1gnacio/Clima", "_blank")
@@ -17,18 +16,15 @@ class Github extends Component {
           return 'crosshair';
         })
     };
-
-    render() {
-        const [cursor, setCursor] = useState('crosshair');
-        return(
-            <div className="container">
-                <img src="../assets/git.jpg" 
-                onClick={this.clickHandler} 
-                onMouseOver={this.mouseOverHandler(setCursor)} 
-                style={{cursor: cursor}}/>
-            </div>
-        );
-    }
+    return(
+        <div className="container">
+            <img src="../assets/git.jpg" 
+            onClick={this.clickHandler} 
+            onMouseOver={this.mouseOverHandler(setCursor)} 
+            style={{cursor: cursor}}/>
+        </div>
+    );
 }
+
 
 export default Github
