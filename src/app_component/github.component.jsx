@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import logo from '../assets/git.jpg'
+import logo from '../assets/git.png'
 
 function Github() {
 
-    const [cursor, setCursor] = useState('crosshair');
+    const [cursor, setCursor] = useState();
 
     const changeCursor = () => {
         setCursor(prevState => {
